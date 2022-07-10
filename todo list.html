@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TO DO LIST</title>
+<style>
+
+* {
+ box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: lightsalmon;
+  font-size: 16px;
+  
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+}
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: indigo;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+.close:hover{
+ background-color:#cyan;
+ color:white;
+}
+
+.header {
+  background-color: darkblue;
+  padding: 30px 40px;
+  color: white;
+  }
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+
+.addButton {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: green;
+  float: left;
+  font-size: 16px;
+  cursor: pointer;
+transition:0.3s;
+  border-radius: 0;
+}
+.addButton{
+ background-color:#bbb;
+}
+</style>
+</head>
+<body>
+
+<div id="myDIV" class="header">
+  <h2 style="margin:5px">TO DO LIST</h2>
+  <input type="text" id="myInput" placeholder="Enter list of items">
+  <span onclick="newEle()" class="addButton">Add</span>
+</div>
+
+<ul id="myUL">
+  <li>WAKE UP AT 5:30 AM</li>
+  <li class="checked">GO TO YOGA</li>
+  <li>FRESH UP</li>
+  <li>GO TO MESS</li>
+  <li>GO TO COLLEGE</li>
+  <li>SUBMIT ASSIGNMENT</li>
+</ul>
+
+<script>
+
+var mylist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < mylist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  mylist[i].appendChild(span);
+}
+var cl = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < cl.length; i++) {
+  cl[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+function newEle() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+</body>
+</html>
