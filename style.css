@@ -1,0 +1,30 @@
+.calculator {
+    padding: 10px;
+    border-radius: 1em;
+    height: 380px;
+    width: 400px;
+    margin: auto;
+    background-color: white;
+}
+.display-box {
+    font-family: fantasy;
+    background-color: cyan;
+    border: solid black 0.5px;
+    color: black;
+    border-radius: 5px;
+}
+#btn {
+    background-color: black;
+}
+input[type=button] {
+    font-family: fantasy;
+    background-color: black;
+    color: white;
+    border: solid black 0.5px;
+    width: 100%;
+    border-radius: 5px;
+    height: 70%;
+}
+input:active[type=button] {
+    background: black;
+}
