@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>task3</title>
+    <style>body{background-color:pink;}</style>
+    <h1>Registeration Form</h1>
+    <script>
+        function testVariable() {
+            var strText = document.getElementById("textone").value;          
+            var strText1 = document.getElementById("textTWO").value;
+            var strText2 = document.getElementById("textTHREE").value;
+            var result = strText + ' ' + strText1 + ' ' +strText2;
+            document.getElementById('spanResult').textContent = result;
+             
+        }
+    </script>
+</head>
+<body> 
+    <label for="fname">First name:</label>
+    <input type="text" id="textone" />
+    <label for="gmail id">Gmail id:</label>
+    <input type="text" id="textTWO" />
+    <label for="moblie">moblie number:</label>
+    <input type="text" id="textTHREE" />
+    <button  onclick="testVariable()">Submit</button> <br />
+    <span id="spanResult">
+
+    </span>
+   
+     
+</body>
+</html>
